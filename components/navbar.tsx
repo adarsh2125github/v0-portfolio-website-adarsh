@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import { Menu, X, Download, Eye } from "lucide-react"
 
-const RESUME_DRIVE_VIEW = "https://drive.google.com/file/d/1LtwZPCVIZ5BEfzreBViYOV4DcoupW7S-/view?usp=sharing"
+const RESUME_DRIVE_VIEW = "https://drive.google.com/file/d/1kQKzykWDCm93jJPFdiODMjZ9wAD_5nAu/view?usp=drive_link"
 const RESUME_LOCAL_DOWNLOAD = "/resume.pdf"
 
 const navLinks = [
@@ -41,9 +41,8 @@ export function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-[#0a0a0a]/90 backdrop-blur-md border-b border-border" : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-[#0a0a0a]/90 backdrop-blur-md border-b border-border" : "bg-transparent"
+        }`}
     >
       <div className="mx-auto max-w-6xl flex items-center justify-between px-6 py-4">
         <a href="#home" className="text-xl font-bold text-primary font-mono">
