@@ -3,6 +3,9 @@
 import { useState, useEffect, useRef } from "react"
 import { Menu, X, Download, Eye } from "lucide-react"
 
+const RESUME_DRIVE_VIEW = "https://drive.google.com/file/d/1LtwZPCVIZ5BEfzreBViYOV4DcoupW7S-/view?usp=sharing"
+const RESUME_DRIVE_DOWNLOAD = "https://drive.google.com/uc?export=download&id=1LtwZPCVIZ5BEfzreBViYOV4DcoupW7S-"
+
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
@@ -70,7 +73,7 @@ export function Navbar() {
             {resumeOpen && (
               <div className="absolute right-0 mt-2 w-40 bg-[#111111] border border-border rounded-lg shadow-xl overflow-hidden z-50">
                 <a
-                  href="/resume.pdf"
+                  href={RESUME_DRIVE_VIEW}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setResumeOpen(false)}
@@ -80,8 +83,9 @@ export function Navbar() {
                   View
                 </a>
                 <a
-                  href="/resume.pdf"
-                  download="Adarsh_Anand_Resume.pdf"
+                  href={RESUME_DRIVE_DOWNLOAD}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setResumeOpen(false)}
                   className="flex items-center gap-2 px-4 py-3 text-sm text-foreground hover:bg-primary/10 hover:text-primary transition-colors border-t border-border"
                 >
@@ -118,7 +122,7 @@ export function Navbar() {
           ))}
           <div className="flex gap-3 mt-4">
             <a
-              href="/resume.pdf"
+              href={RESUME_DRIVE_VIEW}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-sm border border-primary text-primary px-4 py-1.5 rounded hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -127,8 +131,9 @@ export function Navbar() {
               View Resume
             </a>
             <a
-              href="/resume.pdf"
-              download="Adarsh_Anand_Resume.pdf"
+              href={RESUME_DRIVE_DOWNLOAD}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 text-sm border border-border text-foreground px-4 py-1.5 rounded hover:border-primary hover:text-primary transition-colors"
             >
               <Download size={14} />

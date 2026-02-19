@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { ScrollAnimate } from "./scroll-animate"
+import { ScrollAnimate, NetflixCard } from "./scroll-animate"
 
 const skills = [
   { name: "C", level: 80 },
@@ -33,18 +33,20 @@ function SkillBar({ name, level }: { name: string; level: number }) {
   }, [level])
 
   return (
-    <div ref={ref}>
-      <div className="flex items-center justify-between mb-2">
-        <span className="text-foreground font-medium text-sm">{name}</span>
-        <span className="font-mono text-primary text-sm">{level}%</span>
+    <NetflixCard>
+      <div ref={ref} className="bg-secondary border border-border rounded-lg p-4 hover:border-primary/50 transition-colors">
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-foreground font-medium text-sm">{name}</span>
+          <span className="font-mono text-primary text-sm">{level}%</span>
+        </div>
+        <div className="h-2 bg-[#0a0a0a] rounded-full overflow-hidden border border-border">
+          <div
+            className="h-full bg-primary rounded-full transition-all duration-1000 ease-out"
+            style={{ width: `${width}%` }}
+          />
+        </div>
       </div>
-      <div className="h-2 bg-secondary rounded-full overflow-hidden border border-border">
-        <div
-          className="h-full bg-primary rounded-full transition-all duration-1000 ease-out"
-          style={{ width: `${width}%` }}
-        />
-      </div>
-    </div>
+    </NetflixCard>
   )
 }
 
@@ -57,11 +59,11 @@ export function Skills() {
             {"// Tech Stack"}
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12">
-            Skills & Proficiency
+            {"Skills & Proficiency"}
           </h2>
         </ScrollAnimate>
 
-        <div className="grid md:grid-cols-2 gap-x-12 gap-y-6 max-w-4xl">
+        <div className="grid md:grid-cols-2 gap-x-6 gap-y-4 max-w-4xl">
           {skills.map((skill, index) => (
             <ScrollAnimate key={skill.name} delay={index * 80}>
               <SkillBar name={skill.name} level={skill.level} />

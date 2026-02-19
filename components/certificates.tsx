@@ -1,7 +1,7 @@
 "use client"
 
 import { Award, ExternalLink } from "lucide-react"
-import { ScrollAnimate } from "./scroll-animate"
+import { ScrollAnimate, NetflixCard } from "./scroll-animate"
 
 const certificates = [
   {
@@ -86,35 +86,37 @@ export function Certificates() {
         <div className="grid gap-4">
           {certificates.map((cert, index) => (
             <ScrollAnimate key={cert.number} delay={index * 80}>
-              <a
-                href={cert.link}
-                className="group flex items-center gap-6 bg-secondary border border-border rounded-lg px-6 py-5 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(220,38,38,0.1)] hover:-translate-y-1 transition-all duration-300 cursor-pointer"
-              >
-                <span className="text-3xl font-bold text-primary/20 group-hover:text-primary/40 transition-colors font-mono shrink-0">
-                  {cert.number}
-                </span>
-                <div className="flex-1 min-w-0">
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
-                    <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors truncate">
-                      {cert.title}
-                    </h3>
-                    <span className="text-xs font-mono text-muted-foreground shrink-0">
-                      {cert.issuer}
-                    </span>
+              <NetflixCard>
+                <a
+                  href={cert.link}
+                  className="group flex items-center gap-6 bg-secondary border border-border rounded-lg px-6 py-5 hover:border-primary/50 transition-all duration-300 cursor-pointer"
+                >
+                  <span className="text-3xl font-bold text-primary/20 group-hover:text-primary/40 transition-colors font-mono shrink-0">
+                    {cert.number}
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
+                      <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors truncate">
+                        {cert.title}
+                      </h3>
+                      <span className="text-xs font-mono text-muted-foreground shrink-0">
+                        {cert.issuer}
+                      </span>
+                    </div>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      {cert.detail}
+                    </p>
                   </div>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    {cert.detail}
-                  </p>
-                </div>
-                <div className="hidden sm:flex items-center gap-3 text-muted-foreground shrink-0">
-                  <Award size={16} className="text-primary/50" />
-                  <span className="text-xs font-mono">{cert.date}</span>
-                  <ExternalLink
-                    size={14}
-                    className="text-muted-foreground group-hover:text-primary transition-colors"
-                  />
-                </div>
-              </a>
+                  <div className="hidden sm:flex items-center gap-3 text-muted-foreground shrink-0">
+                    <Award size={16} className="text-primary/50" />
+                    <span className="text-xs font-mono">{cert.date}</span>
+                    <ExternalLink
+                      size={14}
+                      className="text-muted-foreground group-hover:text-primary transition-colors"
+                    />
+                  </div>
+                </a>
+              </NetflixCard>
             </ScrollAnimate>
           ))}
         </div>

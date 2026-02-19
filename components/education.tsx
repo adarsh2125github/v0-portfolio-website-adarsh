@@ -1,7 +1,7 @@
 "use client"
 
 import { GraduationCap } from "lucide-react"
-import { ScrollAnimate } from "./scroll-animate"
+import { ScrollAnimate, NetflixCard } from "./scroll-animate"
 
 const educationData = [
   {
@@ -58,23 +58,25 @@ export function Education() {
                       index % 2 === 0 ? "md:pr-12" : "md:pl-12"
                     }`}
                   >
-                    <div className="bg-secondary border border-border rounded-lg p-6 hover:border-primary/50 transition-colors water-float">
-                      <div className="flex items-center gap-3 mb-3">
-                        <GraduationCap className="text-primary" size={20} />
-                        <h3 className="font-semibold text-foreground">
-                          {item.degree}
-                        </h3>
+                    <NetflixCard>
+                      <div className="bg-secondary border border-border rounded-lg p-6 hover:border-primary/50 transition-colors">
+                        <div className="flex items-center gap-3 mb-3">
+                          <GraduationCap className="text-primary" size={20} />
+                          <h3 className="font-semibold text-foreground">
+                            {item.degree}
+                          </h3>
+                        </div>
+                        <p className="text-muted-foreground text-sm">
+                          {item.school}
+                        </p>
+                        <p className="text-muted-foreground text-sm">
+                          {item.location}
+                        </p>
+                        <p className="text-primary text-sm mt-2 font-mono">
+                          {item.detail}
+                        </p>
                       </div>
-                      <p className="text-muted-foreground text-sm">
-                        {item.school}
-                      </p>
-                      <p className="text-muted-foreground text-sm">
-                        {item.location}
-                      </p>
-                      <p className="text-primary text-sm mt-2 font-mono">
-                        {item.detail}
-                      </p>
-                    </div>
+                    </NetflixCard>
                   </div>
 
                   {/* Spacer for the other side */}
