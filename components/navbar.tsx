@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import { Menu, X, Download, Eye } from "lucide-react"
 
 const RESUME_DRIVE_VIEW = "https://drive.google.com/file/d/1LtwZPCVIZ5BEfzreBViYOV4DcoupW7S-/view?usp=sharing"
-const RESUME_DRIVE_DOWNLOAD = "https://drive.google.com/uc?export=download&id=1LtwZPCVIZ5BEfzreBViYOV4DcoupW7S-"
+const RESUME_LOCAL_DOWNLOAD = "/resume.pdf"
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -83,9 +83,8 @@ export function Navbar() {
                   View
                 </a>
                 <a
-                  href={RESUME_DRIVE_DOWNLOAD}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={RESUME_LOCAL_DOWNLOAD}
+                  download="Adarsh_Anand_Resume.pdf"
                   onClick={() => setResumeOpen(false)}
                   className="flex items-center gap-2 px-4 py-3 text-sm text-foreground hover:bg-primary/10 hover:text-primary transition-colors border-t border-border"
                 >
@@ -131,9 +130,8 @@ export function Navbar() {
               View Resume
             </a>
             <a
-              href={RESUME_DRIVE_DOWNLOAD}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={RESUME_LOCAL_DOWNLOAD}
+              download="Adarsh_Anand_Resume.pdf"
               className="flex items-center gap-2 text-sm border border-border text-foreground px-4 py-1.5 rounded hover:border-primary hover:text-primary transition-colors"
             >
               <Download size={14} />
