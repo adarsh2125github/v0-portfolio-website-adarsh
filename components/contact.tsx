@@ -1,4 +1,4 @@
-import { Mail, Github, Linkedin, Phone } from "lucide-react"
+import { Mail, Github, Linkedin } from "lucide-react"
 
 export function Contact() {
   return (
@@ -17,7 +17,7 @@ export function Contact() {
           }
         </p>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-3 gap-6">
           <a
             href="mailto:adarsh21255@gmail.com"
             className="group flex flex-col items-center gap-3 bg-secondary border border-border rounded-lg p-6 hover:border-primary/50 transition-all duration-300"
@@ -31,19 +31,7 @@ export function Contact() {
           </a>
 
           <a
-            href="tel:+918437870692"
-            className="group flex flex-col items-center gap-3 bg-secondary border border-border rounded-lg p-6 hover:border-primary/50 transition-all duration-300"
-          >
-            <div className="p-3 rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-              <Phone size={24} />
-            </div>
-            <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
-              +91-8437870692
-            </span>
-          </a>
-
-          <a
-            href="https://github.com/adarsh2125github"
+            href="https://github.com/dashboard"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex flex-col items-center gap-3 bg-secondary border border-border rounded-lg p-6 hover:border-primary/50 transition-all duration-300"
@@ -57,7 +45,7 @@ export function Contact() {
           </a>
 
           <a
-            href="https://www.linkedin.com/in/adarshanand2125/"
+            href="https://www.linkedin.com/in/adarshanand2125"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex flex-col items-center gap-3 bg-secondary border border-border rounded-lg p-6 hover:border-primary/50 transition-all duration-300"

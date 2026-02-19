@@ -6,21 +6,21 @@ const projects = [
     description:
       "A simple Kotlin Android app to manage and track daily expenses with clean UI and local data persistence.",
     tags: ["Kotlin", "Android", "Mobile"],
-    github: "https://github.com/adarsh2125github",
+    github: "https://github.com/adarsh2125github/simple_expense_tracker",
   },
   {
     title: "Linux System Monitor",
     description:
       "Automation scripts in Bash to detect suspicious logins, monitor disk usage, track system updates, and manage user sessions.",
     tags: ["Python", "Linux", "CLI"],
-    github: "https://github.com/adarsh2125github",
+    github: "https://github.com/adarsh2125github/linux-system-monitor",
   },
   {
     title: "Cyber Toolkit",
     description:
       "An all-in-one cybersecurity utility featuring Port Scanner, WHOIS lookup, hash generator, networking helpers and more.",
     tags: ["Python", "Cybersecurity", "Networking"],
-    github: "https://github.com/adarsh2125github",
+    github: "https://github.com/adarsh2125github/Cyber_Toolkit",
   },
 ]
 
