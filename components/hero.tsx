@@ -40,7 +40,7 @@ export function Hero() {
           <span className="animate-pulse">|</span>
         </p>
 
-        <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 text-balance">
+        <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 text-balance water-float">
           Adarsh Anand
         </h1>
 
@@ -84,7 +84,9 @@ export function Hero() {
             <Linkedin size={22} />
           </a>
           <a
-            href="mailto:adarsh21255@gmail.com"
+            href="https://mail.google.com/mail/?view=cm&to=adarsh21255@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-muted-foreground hover:text-primary transition-colors"
             aria-label="Email"
           >

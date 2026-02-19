@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { ScrollAnimate } from "./scroll-animate"
 
 const skills = [
   { name: "C", level: 80 },
@@ -51,16 +52,20 @@ export function Skills() {
   return (
     <section id="skills" className="py-24 px-6">
       <div className="mx-auto max-w-6xl">
-        <p className="font-mono text-primary text-sm mb-2">
-          {"// Tech Stack"}
-        </p>
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12">
-          Skills & Proficiency
-        </h2>
+        <ScrollAnimate>
+          <p className="font-mono text-primary text-sm mb-2">
+            {"// Tech Stack"}
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12">
+            Skills & Proficiency
+          </h2>
+        </ScrollAnimate>
 
         <div className="grid md:grid-cols-2 gap-x-12 gap-y-6 max-w-4xl">
-          {skills.map((skill) => (
-            <SkillBar key={skill.name} name={skill.name} level={skill.level} />
+          {skills.map((skill, index) => (
+            <ScrollAnimate key={skill.name} delay={index * 80}>
+              <SkillBar name={skill.name} level={skill.level} />
+            </ScrollAnimate>
           ))}
         </div>
       </div>

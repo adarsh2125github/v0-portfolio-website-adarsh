@@ -1,7 +1,7 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { Menu, X } from "lucide-react"
+import { useState, useEffect, useRef } from "react"
+import { Menu, X, Download, Eye } from "lucide-react"
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -17,11 +17,23 @@ const navLinks = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [resumeOpen, setResumeOpen] = useState(false)
+  const resumeRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (resumeRef.current && !resumeRef.current.contains(e.target as Node)) {
+        setResumeOpen(false)
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [])
 
   return (
@@ -46,14 +58,39 @@ export function Navbar() {
               {link.label}
             </a>
           ))}
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm border border-primary text-primary px-4 py-1.5 rounded hover:bg-primary hover:text-primary-foreground transition-colors"
-          >
-            Resume
-          </a>
+
+          {/* Resume dropdown */}
+          <div className="relative" ref={resumeRef}>
+            <button
+              onClick={() => setResumeOpen(!resumeOpen)}
+              className="text-sm border border-primary text-primary px-4 py-1.5 rounded hover:bg-primary hover:text-primary-foreground transition-colors"
+            >
+              Resume
+            </button>
+            {resumeOpen && (
+              <div className="absolute right-0 mt-2 w-40 bg-[#111111] border border-border rounded-lg shadow-xl overflow-hidden z-50">
+                <a
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setResumeOpen(false)}
+                  className="flex items-center gap-2 px-4 py-3 text-sm text-foreground hover:bg-primary/10 hover:text-primary transition-colors"
+                >
+                  <Eye size={16} />
+                  View
+                </a>
+                <a
+                  href="/resume.pdf"
+                  download="Adarsh_Anand_Resume.pdf"
+                  onClick={() => setResumeOpen(false)}
+                  className="flex items-center gap-2 px-4 py-3 text-sm text-foreground hover:bg-primary/10 hover:text-primary transition-colors border-t border-border"
+                >
+                  <Download size={16} />
+                  Download
+                </a>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Mobile toggle */}
@@ -79,14 +116,25 @@ export function Navbar() {
               {link.label}
             </a>
           ))}
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block mt-4 text-sm border border-primary text-primary px-4 py-1.5 rounded hover:bg-primary hover:text-primary-foreground transition-colors"
-          >
-            Resume
-          </a>
+          <div className="flex gap-3 mt-4">
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm border border-primary text-primary px-4 py-1.5 rounded hover:bg-primary hover:text-primary-foreground transition-colors"
+            >
+              <Eye size={14} />
+              View Resume
+            </a>
+            <a
+              href="/resume.pdf"
+              download="Adarsh_Anand_Resume.pdf"
+              className="flex items-center gap-2 text-sm border border-border text-foreground px-4 py-1.5 rounded hover:border-primary hover:text-primary transition-colors"
+            >
+              <Download size={14} />
+              Download
+            </a>
+          </div>
         </div>
       )}
     </nav>

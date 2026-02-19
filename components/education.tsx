@@ -1,4 +1,7 @@
+"use client"
+
 import { GraduationCap } from "lucide-react"
+import { ScrollAnimate } from "./scroll-animate"
 
 const educationData = [
   {
@@ -25,12 +28,14 @@ export function Education() {
   return (
     <section id="education" className="py-24 px-6">
       <div className="mx-auto max-w-6xl">
-        <p className="font-mono text-primary text-sm mb-2">
-          {"// Education"}
-        </p>
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12">
-          Academic Background
-        </h2>
+        <ScrollAnimate>
+          <p className="font-mono text-primary text-sm mb-2">
+            {"// Education"}
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12">
+            Academic Background
+          </h2>
+        </ScrollAnimate>
 
         <div className="relative">
           {/* Timeline line */}
@@ -38,43 +43,44 @@ export function Education() {
 
           <div className="space-y-12">
             {educationData.map((item, index) => (
-              <div
-                key={index}
-                className={`relative flex flex-col md:flex-row ${
-                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                } items-start md:items-center gap-8`}
-              >
-                {/* Timeline dot */}
-                <div className="absolute left-6 md:left-1/2 w-3 h-3 bg-primary rounded-full -translate-x-1/2 mt-2 md:mt-0 z-10" />
-
-                {/* Content card */}
+              <ScrollAnimate key={index} delay={index * 150}>
                 <div
-                  className={`ml-14 md:ml-0 md:w-5/12 ${
-                    index % 2 === 0 ? "md:pr-12" : "md:pl-12"
-                  }`}
+                  className={`relative flex flex-col md:flex-row ${
+                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                  } items-start md:items-center gap-8`}
                 >
-                  <div className="bg-secondary border border-border rounded-lg p-6 hover:border-primary/50 transition-colors">
-                    <div className="flex items-center gap-3 mb-3">
-                      <GraduationCap className="text-primary" size={20} />
-                      <h3 className="font-semibold text-foreground">
-                        {item.degree}
-                      </h3>
-                    </div>
-                    <p className="text-muted-foreground text-sm">
-                      {item.school}
-                    </p>
-                    <p className="text-muted-foreground text-sm">
-                      {item.location}
-                    </p>
-                    <p className="text-primary text-sm mt-2 font-mono">
-                      {item.detail}
-                    </p>
-                  </div>
-                </div>
+                  {/* Timeline dot */}
+                  <div className="absolute left-6 md:left-1/2 w-3 h-3 bg-primary rounded-full -translate-x-1/2 mt-2 md:mt-0 z-10" />
 
-                {/* Spacer for the other side */}
-                <div className="hidden md:block md:w-5/12" />
-              </div>
+                  {/* Content card */}
+                  <div
+                    className={`ml-14 md:ml-0 md:w-5/12 ${
+                      index % 2 === 0 ? "md:pr-12" : "md:pl-12"
+                    }`}
+                  >
+                    <div className="bg-secondary border border-border rounded-lg p-6 hover:border-primary/50 transition-colors water-float">
+                      <div className="flex items-center gap-3 mb-3">
+                        <GraduationCap className="text-primary" size={20} />
+                        <h3 className="font-semibold text-foreground">
+                          {item.degree}
+                        </h3>
+                      </div>
+                      <p className="text-muted-foreground text-sm">
+                        {item.school}
+                      </p>
+                      <p className="text-muted-foreground text-sm">
+                        {item.location}
+                      </p>
+                      <p className="text-primary text-sm mt-2 font-mono">
+                        {item.detail}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Spacer for the other side */}
+                  <div className="hidden md:block md:w-5/12" />
+                </div>
+              </ScrollAnimate>
             ))}
           </div>
         </div>
